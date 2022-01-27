@@ -1,4 +1,3 @@
-
 public abstract class IncomeTaxPayer {
 
 	private static int currentMaxTaxID;
@@ -36,19 +35,17 @@ public abstract class IncomeTaxPayer {
 		return "  " + taxID + " " + name + " income " + income ;
 	}
 
+	//compares two income tax payers
 	public boolean equals(Object obj) {
 		if (!(obj instanceof IncomeTaxPayer)){
 			return false;
-
 		}
 		IncomeTaxPayer compareObj = (IncomeTaxPayer) obj;
 
 		if ((compareObj.getTaxID()) == (this.taxID)){
 			return true;
-
 		}
 		return false;
-
 	}
 
 	public abstract double calculateIncomeTax();
