@@ -1,9 +1,9 @@
-
 public class Staff extends IncomeTaxPayer {
 
 	private int salaryPerHour;
 	final private int incomeTaxPercentage = 25;
 
+	//cooks get payed 20/hour, others 10/hour
 	public Staff(String name, boolean isCook) {
 		super(name);
 		if (isCook){
@@ -28,6 +28,7 @@ public class Staff extends IncomeTaxPayer {
 		return numHours * getSalaryPerHour();
 	}
 
+	//income tax is 25 % for staff
 	@Override
 	public double calculateIncomeTax() {
 
