@@ -1,7 +1,7 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
+//a foodstand only has an owner as worker
 public class FoodStand extends FoodPlace {
 
     public FoodStand(String name, double fixedCosts, WorkingOwner owner) {
