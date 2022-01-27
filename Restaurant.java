@@ -1,7 +1,7 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
+//restaurant has cooks and servers
 public class Restaurant extends FoodPlace {
 
 	private Staff cook;
@@ -29,13 +29,15 @@ public class Restaurant extends FoodPlace {
 				"\n" + "Server: " + server;
 	}
 
+	//simulates a work shift for the restaurant
 	@Override
 	public void workShift(int hours) {
-		this.cook.setIncome(this.cook.getIncome() + cook.getSalaryPerHour()*hours);
-		this.server.setIncome(this.server.getIncome() + server.getSalaryPerHour()*hours); // the server and cook are payed hourly //
+		this.cook.setIncome(this.cook.getIncome() + cook.getSalaryPerHour()*hours); //sets cook's income
+		this.server.setIncome(this.server.getIncome() + server.getSalaryPerHour()*hours); // sets server's income //
 		getOwner().setSalaryExpenses(getOwner().getSalaryExpenses() + (server.getSalaryPerHour()*hours) + (cook.getSalaryPerHour()*hours)); // the owner expenses are the staff's wages //
 	}
 
+	//a list of the members of the food place 
 	@Override
 	public List<IncomeTaxPayer> getIncomeTaxPayers() {
 		ArrayList<IncomeTaxPayer> l = new ArrayList<IncomeTaxPayer>();
@@ -44,7 +46,7 @@ public class Restaurant extends FoodPlace {
 		IncomeTaxPayer s = (IncomeTaxPayer) getServer();
 		l.add(o);
 		l.add(c);
-		l.add(s); // a list of the members of the food place //
+		l.add(s); 
 		return l;
 	}
 
@@ -58,8 +60,7 @@ public class Restaurant extends FoodPlace {
 
 	@Override
 	public double getTipPercentage() {
-
-		return this.server.getTargetTipPct();
+		return this.server.getTargetTipPct(); //tip desired by the server
 	}
 
 }
