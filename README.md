@@ -1,7 +1,5 @@
 # Food-Service-Industry-Model
-This project models the economic interactions between members of the food industry.
-
-This project models:
+This project models the economic interactions between members of the food industry:
 
 - various foodplaces: restaurants, fast food stores and foodstands.
 - people related to the foodplaces: owners, working owners, staff, cooks and servers.
