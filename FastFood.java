@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +17,7 @@ public class FastFood extends FoodPlace {
         return staff;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Name of FastFood: " + this.getName() +
-                "\n" + "Owner: " + this.getOwner());
-        int index = 1;
-        for (Staff staff: staff) {
-            builder.append("\n" + "Staff " + index++ + " : " + staff );
-        }
-        return builder.toString();
-    }
-
+    //workers are paid based on work hours and wage
     @Override
     public void workShift(int hours) {
         double sum = 0;
@@ -41,6 +29,7 @@ public class FastFood extends FoodPlace {
         getOwner().setSalaryExpenses(getOwner().getSalaryExpenses() + sum); // owner's salary expenses are changed based on the working hours of the employees//
     }
 
+    //returns a list of all the staff and owner
     @Override
     public List<IncomeTaxPayer> getIncomeTaxPayers() {
         List<IncomeTaxPayer> taxPayers = new ArrayList<>();
@@ -48,12 +37,13 @@ public class FastFood extends FoodPlace {
             taxPayers.add(i, this.staff.get(i));
         }
         taxPayers.add(getOwner());
-        return taxPayers; // a list of all the staff and owner//
+        return taxPayers; 
     }
 
+    //distribution of the customer's check
     @Override
     public void distributeIncomeAndSalesTax(Check check) {
-        getOwner().setIncome(getOwner().getIncome() + check.getMenuPrice()); // the cost of the meal goes towards the owner's income //
+        getOwner().setIncome(getOwner().getIncome() + check.getMenuPrice()); // the cost of the meal goes towards the owner's income 
         double tipSplit = check.getTip() / this.staff.size();
         for (int i = 0; i < this.staff.size() ; i++){
             Staff temp = this.staff.get(i);
@@ -63,6 +53,7 @@ public class FastFood extends FoodPlace {
         setTotalSalesTax(check.getSalesTax());
     }
 
+    //no tips for fast food
     @Override
     public double getTipPercentage() {
         return 0;
