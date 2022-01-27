@@ -1,4 +1,4 @@
-
+//a check has a price, a tax and a tip component
 public class Check {
 	private double menuPrice;
 	private double salesTax;
