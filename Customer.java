@@ -1,9 +1,7 @@
-
-
 public class Customer  {
 
 	private String name;
-	private int  targetTipPct;
+	private int  targetTipPct; //desired customer tip
 
 	public Customer(String name, int targetTipPct) {
 		this.name = name;
@@ -21,7 +19,8 @@ public class Customer  {
 	public String getDescriptiveMessage(FoodPlace foodPlace) {
 		return this.name + " dined in " + foodPlace.getName();
 	}
-
+	
+	// simulates the customer dining at the foodPlace and paying for a menu item
 	public void dineAndPayCheck(FoodPlace foodPlace, double menuPrice ) {
 		Check c = new Check(menuPrice);
 
@@ -29,6 +28,5 @@ public class Customer  {
 
 		c.setTipByPct(tippct1);
 		foodPlace.distributeIncomeAndSalesTax(c); // the taxes and tips are properly distributed//
-
 	}
 }
