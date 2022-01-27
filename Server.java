@@ -1,4 +1,3 @@
-
 public class Server extends Staff {
 	
 	private int targetTipPct;
