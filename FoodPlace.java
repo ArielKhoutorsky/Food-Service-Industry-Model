@@ -1,8 +1,7 @@
-
 import java.util.List;
 
 public abstract class FoodPlace {
-
+    
     private static int currentMaxFoodPlaceID;
     private int foodPlaceID;
     private String name;
@@ -47,18 +46,17 @@ public abstract class FoodPlace {
         return this.owner;
     }
 
+    //compares two food places
     @Override
     public boolean equals(Object obj) {
 
         if (!(obj instanceof FoodPlace)){
             return false;
-
         }
         FoodPlace compareObj = (FoodPlace) obj;
 
         if ((compareObj.getFoodPlaceID()) == (this.foodPlaceID)){
             return true;
-
         }
         return false;
     }
