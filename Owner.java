@@ -1,9 +1,9 @@
-
 public class Owner extends IncomeTaxPayer {
 
-	final private int incomeTaxPct = 10;
+	final private int incomeTaxPct = 10; //owner pays 10% income tax
 	private double salaryExpenses;
 
+	//owns a food place
 	private FoodPlace foodPlace;
 
 	public Owner(String name) {
@@ -33,12 +33,12 @@ public class Owner extends IncomeTaxPayer {
 
 	@Override
 	public double calculateIncomeTax() {
-		double profit = getIncome() - (getSalaryExpenses() + getFoodPlace().getFixedCosts());
+		double profit = getIncome() - (getSalaryExpenses() + getFoodPlace().getFixedCosts()); //profits is the difference between revenues and costs
 		if (profit > 0 ){
 			return 0.1 * profit; // an owner's taxes are 10 percent of his profits //
 		}
 		else{
-			return 0;
+			return 0; //no taxes if profits are negative
 		}
 	}
 }
